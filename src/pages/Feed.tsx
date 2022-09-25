@@ -57,7 +57,7 @@ const Feed = () => {
                   skills={testSkills}
                   collaborators={3}
                   collaboratorsLimit={5}
-                  status="Activo"
+                  status="activo"
                   isInterested={true}
                 ></ProjectCard>
               </Box>

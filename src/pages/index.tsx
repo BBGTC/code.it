@@ -1,8 +1,11 @@
 import { trpcNext } from 'utils/trpcNext';
 import { Grid, Typography, Paper, Button } from '@mui/material';
-
+import Icon from '@mui/material';
 import character_1 from 'public/img/character_1.png';
 import { Box } from '@mui/system';
+import Link from 'next/link';
+
+import codeid from 'public/img/code.png';
 
 export default function IndexPage() {
 
@@ -17,9 +20,13 @@ export default function IndexPage() {
       </Grid>
       <Grid item xs={6} padding={5} height={"100%"} marginY="auto" >
         <div style={{ textAlign: "center" }}>
+          <Grid display="flex" justifyContent="center" alignItems="center">
+            <img src={codeid.src} style={{margin: 0}} height={80} alt="" />
           <Typography variant="h1" color="white" fontWeight={700} >
-            Code.it
+            code.it!
           </Typography>
+
+          </Grid>
 
           <Paper elevation={5} style={{
             backgroundColor: "#26262F",
@@ -30,6 +37,8 @@ export default function IndexPage() {
               Encuentra colaboradores para tus proyectos personales, a unos cuantos clicks.
             </Typography>
             <hr style={{ borderColor: "rgba(255,92,0,0.75)", border: "1 px solid", boxShadow: "10px 10px 13px 0px rgba(255,92,0,0.75)" }} />
+            {/* <Grid item display="flex" justifyContent="space-around"> */}
+            {/* </Grid> */}
             <Typography marginTop={5} fontSize={18} fontWeight={300} color="white">
               Mejora tu currículum colaborando en proyectos reales con personas que tienen el mismo objetivo que tú.
               Adquiere nuevas habilidades rodeándote de ingenieros de todo el mundo que quieran colaborar.
@@ -45,10 +54,11 @@ export default function IndexPage() {
             <Typography color="white" style={{ margin: 10 }}>
               o
             </Typography>
-
+            <Link href="/login">
             <Button fullWidth color="info">
               Inicia sesión
             </Button>
+            </Link>
           </Paper>
         </div>
       </Grid>

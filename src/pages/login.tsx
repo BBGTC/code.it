@@ -23,8 +23,8 @@ const login = () => {
     <div>
       <Grid>
         <Box display="flex" justifyContent="center" alignContent="center">
-          <Box marginTop={15} width={1000} bgcolor="#26262F" style={{ borderRadius: 30 }} padding={10}>
-            <Typography textAlign="center" variant="h3" fontWeight={900} color="white">
+          <Box boxShadow={10} marginTop={15} width={1000} bgcolor="#26262F" style={{ borderRadius: 30 }} padding={10}>
+            <Typography textAlign="center" variant="h3" fontWeight={700} color="white">
               INGRESA A TU CUENTA
             </Typography>
             <form action="">
@@ -36,9 +36,11 @@ const login = () => {
               </Grid>
 
 
-              <Button color="warning" fullWidth variant='contained' style={{ boxShadow: "10px 10px 47px 0px rgba(255,92,0,0.75)" }}>
-                Entra!
-              </Button>
+              <Link href="/Feed">
+                <Button color="warning" fullWidth variant='contained' style={{ boxShadow: "10px 10px 47px 0px rgba(255,92,0,0.75)" }}>
+                  Entra!
+                </Button>
+              </Link>
 
               <Box marginY={5}>
                 <hr style={{ marginTop: 10, borderColor: "#999999", border: "1 px solid #999999" }} />
@@ -61,7 +63,7 @@ const login = () => {
                   Olvidaste tu contraseña?
                 </MuiLink>
               </Grid>
-              
+
             </form>
           </Box>
         </Box>
