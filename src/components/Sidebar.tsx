@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { useRouter } from 'next/router'
+
+
 import {
   Box,
   Grid,
@@ -11,12 +14,11 @@ import {
 } from '@mui/material';
 
 import {
-  Groups,
-  Stream,
   Home,
   Code,
-
+  Stream,
 } from '@mui/icons-material';
+import ActiveLink from './ActiveLink';
 
 const Sidebar = () => {
   return (
@@ -29,11 +31,15 @@ const Sidebar = () => {
         <MenuList sx={{ color: "white" }}>
           <MenuItem>
             <Home></Home>
-            Profile
+            <ActiveLink href='Feed'>Feed</ActiveLink>
           </MenuItem>
           <MenuItem>
             <Code></Code>
-            Requests
+            <ActiveLink href='Requests'>Requests</ActiveLink>
+          </MenuItem>
+          <MenuItem>
+            <Stream></Stream>
+            <ActiveLink href='CreateProject'>Create a Project</ActiveLink>
           </MenuItem>
         </MenuList>
       </Grid>

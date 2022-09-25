@@ -6,10 +6,6 @@ import {
   Box,
   Grid,
   Typography,
-  Paper,
-  Stack,
-  MenuList,
-  MenuItem
 } from '@mui/material';
 import Sidebar from '../components/Sidebar';
 import Navbar from 'components/Navbar';
@@ -24,7 +20,7 @@ const projects = ['Codemania', 'Projectino', 'Don Fortino']
 
 const Feed = () => {
   return (
-    <>
+    <div style={{ backgroundColor: "#1C1C23" }}>
       <Navbar />
       <Grid
         container
@@ -63,7 +59,7 @@ const Feed = () => {
         </Grid>
 
       </Grid>
-    </>
+    </div>
   )
 }
 

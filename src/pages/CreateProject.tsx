@@ -5,6 +5,7 @@ import {
   TextField,
   Autocomplete,
   Chip,
+  Button,
 } from '@mui/material';
 import {
   Groups,
@@ -19,9 +20,9 @@ import Navbar from 'components/Navbar';
 const INITIAL_PROJECT = {
   title: '',
   description: '',
-  skills: [],
+  skills: [] as string[],
   status: 'starting',
-  limit: 0,
+  limit: 0 as number,
 };
 
 const statuses = ['starting', 'ongoing', 'finished'];
@@ -42,8 +43,39 @@ const CreateProject = () => {
     }));
   };
 
+  const handleChangeStatus = (status: string) => {
+
+    setProject((prevProject) => ({
+      ...prevProject,
+      status: status,
+    }));
+  };
+
+  const handleChangeLimit = (event: ChangeEvent<HTMLInputElement>) => {
+
+    const valueString = (event.target as HTMLInputElement).value;
+    const value = parseInt(valueString, 10) || 0;
+    
+
+
+    setProject((prevProject) => ({
+      ...prevProject,
+      limit: value,
+    }));
+  }
+
+  const handleChangeSkills = (selectedSkills: string[]) => {
+
+    setProject((prevProject: typeof INITIAL_PROJECT) => ({
+      ...prevProject,
+      skills: selectedSkills,
+    }));
+  };
+
+  console.log(project);
+
   return (
-    <>
+    <div style={{ backgroundColor: "#1C1C23" }}>
       <Navbar />
       <Grid
         container
@@ -94,15 +126,27 @@ const CreateProject = () => {
                 ></TextField>
               </Grid>
               <Grid item xs={12} sx={{ marginBottom: 4 }}>
+                <TextField
+                  name='limit'
+                  label='Límite de colaboradores'
+                  variant='outlined'
+                  value={project.limit}
+                  onChange={handleChangeLimit}
+                  required
+                  fullWidth
+                  InputProps={{ style: { color: '#666680' } }}
+                  InputLabelProps={{ style: { color: '#666680' } }}
+                ></TextField>
+              </Grid>
+              <Grid item xs={12} sx={{ marginBottom: 4 }}>
                 <Autocomplete
-                  disablePortal
-                  id="combo-box-demo"
                   options={statuses}
+                  onChange={(_, newValue) => handleChangeStatus(newValue ?? '')}
                   renderInput={(params) => (<TextField
                     {...params}
-                    label="Estátus"
+                    label="Estatus"
                     variant='outlined'
-                    InputProps={{ style: { color: '#666680' } }}
+                    InputProps={{ ...params.InputProps, style: { color: '#666680' } }}
                     InputLabelProps={{ style: { color: '#666680' } }}
                   />)}
                 />
@@ -112,6 +156,7 @@ const CreateProject = () => {
                   multiple
                   freeSolo
                   options={[]}
+                  onChange={(_, newValue) => handleChangeSkills(newValue)}
                   renderTags={(value: readonly string[], getTagProps) =>
                     value.map((option: string, index: number) => (
                       <Chip
@@ -133,14 +178,22 @@ const CreateProject = () => {
                   )}
                 />
               </Grid>
+              <Grid item xs={12} sx={{ marginBottom: 4 }} textAlign='center'>
+                <Button
+                  variant='contained'
+                  sx={{ backgroundColor: "#FF7966", boxShadow: '0px 5px 5px #FF7966', borderRadius: '100px' }}
+                >
+                  Crear Proyecto
+                </Button>
+              </Grid>
             </Grid>
           </form>
         </Grid >
       </Grid >
-    </>
+    </div>
 
   )
 }
 
 
-export default CreateProject
+export default CreateProject;
