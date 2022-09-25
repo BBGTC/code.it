@@ -8,16 +8,34 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   username  String   @unique
-  name String
-  lastName String
-  skills String[]
-  campus String
-  major String
-  semester Int
+  name      String
+  lastName  String  
+  skills    String[]
+  campus    String
+  major     String
+  semester  Int
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  projects  Project[]
+}
+
+model Project {
+  id                String   @id @default(uuid())
+  description       String
+  status            Status   @default(Starting)
+  skills            String[]
+  colaboratorsLimit Int
+  user              User     @relation(fields: [ownerId], references: [id])
+  ownerId           String   
+
+}
+
+enum Status{
+  Starting
+  OnGoing
+  Finished
 }

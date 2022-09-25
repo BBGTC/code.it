@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Project } from "./project";
 
 @Entity()
 export class User implements UserInterface {
@@ -27,6 +28,8 @@ export class User implements UserInterface {
   @Column()
   major: string;
 
+  @OneToMany(() => Project, (project) => project.ownerId)
+  projects : Project[]
 }
 
 export interface UserInterface {
