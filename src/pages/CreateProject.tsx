@@ -55,8 +55,6 @@ const CreateProject = () => {
 
     const valueString = (event.target as HTMLInputElement).value;
     const value = parseInt(valueString, 10) || 0;
-    
-
 
     setProject((prevProject) => ({
       ...prevProject,
@@ -82,28 +80,31 @@ const CreateProject = () => {
         component="main"
         display="flex"
         sx={{ marginTop: 4 }}>
-        <Sidebar />
         <Grid
           item
-          xs={8}
+          xs={1}
+        />
+        <Grid
+          item
+          xs={10}
         // sx={{ backgroundColor: "#84849D", borderRadius: "24px", padding: 4 }}
         >
           <Typography
             variant="h4"
             component="h2"
-            textAlign="center"
             fontWeight="medium"
-            sx={{ color: "white", ml: 1 }}
+            sx={{ color: "white", mb: 4 }}
           >Crea un nuevo proyecto!</Typography>
           <form>
             <Grid
               container
+              spacing={4}
             >
-              <Grid item xs={12} sx={{ marginBottom: 4 }}>
+              <Grid item xs={4}>
                 <TextField
                   name='title'
                   label='Título'
-                  variant='standard'
+                  variant='outlined'
                   value={project.title}
                   onChange={handleChange}
                   required
@@ -112,46 +113,7 @@ const CreateProject = () => {
                   InputLabelProps={{ style: { color: '#84849D' } }}
                 />
               </Grid>
-              <Grid item xs={12} sx={{ marginBottom: 4 }}>
-                <TextField
-                  name='description'
-                  label='Descripción'
-                  variant='standard'
-                  value={project.description}
-                  onChange={handleChange}
-                  required
-                  fullWidth
-                  InputProps={{ style: { color: '#84849D' } }}
-                  InputLabelProps={{ style: { color: '#84849D' } }}
-                ></TextField>
-              </Grid>
-              <Grid item xs={12} sx={{ marginBottom: 4 }}>
-                <TextField
-                  name='limit'
-                  label='Límite de colaboradores'
-                  variant='standard'
-                  value={project.limit}
-                  onChange={handleChangeLimit}
-                  required
-                  fullWidth
-                  InputProps={{ style: { color: '#84849D' } }}
-                  InputLabelProps={{ style: { color: '#84849D' } }}
-                ></TextField>
-              </Grid>
-              <Grid item xs={12} sx={{ marginBottom: 4 }}>
-                <Autocomplete
-                  options={statuses}
-                  onChange={(_, newValue) => handleChangeStatus(newValue ?? '')}
-                  renderInput={(params) => (<TextField
-                    {...params}
-                    label="Estatus"
-                    variant='standard'
-                    InputProps={{ ...params.InputProps, style: { color: '#84849D' } }}
-                    InputLabelProps={{ style: { color: '#84849D' } }}
-                  />)}
-                />
-              </Grid>
-              <Grid item xs={12} sx={{ marginBottom: 4 }}>
+              <Grid item xs={8}>
                 <Autocomplete
                   multiple
                   freeSolo
@@ -171,17 +133,61 @@ const CreateProject = () => {
                     <TextField
                       {...params}
                       label="Habilidades"
-                      variant='standard'
+                      variant='outlined'
                       InputProps={{ ...params.InputProps, style: { color: '#84849D' } }}
                       InputLabelProps={{ style: { color: '#84849D' } }}
                     />
                   )}
                 />
               </Grid>
-              <Grid item xs={12} sx={{ marginBottom: 4 }} textAlign='center'>
+              <Grid item xs={6}>
+                <TextField
+                  name='description'
+                  label='Descripción'
+                  variant='outlined'
+                  multiline
+                  rows={4}
+                  value={project.description}
+                  onChange={handleChange}
+                  required
+                  fullWidth
+                  InputProps={{ style: { color: '#84849D' } }}
+                  InputLabelProps={{ style: { color: '#84849D' } }}
+                ></TextField>
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  name='limit'
+                  label='Límite de colaboradores'
+                  variant='outlined'
+                  value={project.limit}
+                  onChange={handleChangeLimit}
+                  required
+                  fullWidth
+                  InputProps={{ style: { color: '#84849D' } }}
+                  InputLabelProps={{ style: { color: '#84849D' } }}
+                ></TextField>
+              </Grid>
+              <Grid item xs={6}>
+                <Autocomplete
+                  options={statuses}
+                  onChange={(_, newValue) => handleChangeStatus(newValue ?? '')}
+                  renderInput={(params) => (<TextField
+                    {...params}
+                    label="Estatus"
+                    variant='outlined'
+                    InputProps={{ ...params.InputProps, style: { color: '#84849D' } }}
+                    InputLabelProps={{ style: { color: '#84849D' } }}
+                  />)}
+                />
+              </Grid>
+              
+              <Grid item xs={12} textAlign='center'>
                 <Button
                   variant='contained'
-                  sx={{ backgroundColor: "#FF7966", boxShadow: '0px 5px 5px #FF7966', borderRadius: '100px' }}
+                  sx={{
+                    backgroundColor: "#FF7966", boxShadow: "10px 10px 47px 0px rgba(255,92,0,0.75)", borderRadius: '100px'
+                  }}
                 >
                   Crear Proyecto
                 </Button>

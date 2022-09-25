@@ -20,8 +20,17 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: #1C1C23;
   }
+}
+
+.MuiFormLabel-root {
+  color: #84849D !important;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: #84849D !important;
 }

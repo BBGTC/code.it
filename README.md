@@ -1,5 +1,17 @@
 # Code.it
 
+Code.it is an app that allows you to connect with projects you love. Add a project you are working on and invite people to 
+join you, or search for interesting ideas and request to participate in them. In the ever-growing world of software, you will surely find people that can work with you in the next great project.
+
+## Features
+- Sign up and log in with your institutional email. Currently, only ITESM students can use this app.
+- Create a project, add a description and the technologies involved, as well as its current status.
+- Invite people to collaborate in your project.
+- Look for interesting projects and request to join.
+
+## Purpose
+Every single day, new intriguing ideas are brewed across the software community that have great potential, but it can be hard to start looking for people that are interested and have the adequate knowledge to develop them. Conversely, people in the community -particularly students- frequently wish to flesh-out their skills with collaborative projects, which can end up in developing great ideas. As students ourselves, we want people to have the appropriate tools to make this possible, as well as to encourage creativity and teamwork.
+   
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

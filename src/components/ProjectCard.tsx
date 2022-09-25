@@ -9,7 +9,9 @@ import {
 
 import {
   Groups,
-  Stream
+  Stream,
+  Favorite,
+  FavoriteBorder,
 } from '@mui/icons-material';
 
 
@@ -20,17 +22,18 @@ type CardProps = {
   skills: string[],
   collaborators: number,
   collaboratorsLimit: number,
+  isInterested: boolean,
 }
 
-const ProjectCard = ({ title, description, status, skills, collaborators, collaboratorsLimit }: CardProps) => {
+const ProjectCard = ({ title, description, status, skills, collaborators, collaboratorsLimit, isInterested }: CardProps) => {
   return (
     <Box
-      sx={{ backgroundColor: '#353542', borderRadius: "24px", padding: "20px" }}>
+      sx={{ background: '#26262F', borderRadius: "24px", border: "1px #353542 solid", padding: "20px" }}>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Box sx={{ display: "flex" }}>
           <Stream sx={{ color: "white", fontSize: 40, marginRight: 2, alignSelf: "center" }}></Stream>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <Typography color="white" fontSize={28}>{title}</Typography>
+            <Typography color="white" fontSize={28}>{title}{isInterested ? <Favorite /> : <FavoriteBorder />}</Typography>
             <Typography color="#FF7966" fontSize={14}>{description}</Typography>
           </Box>
         </Box>

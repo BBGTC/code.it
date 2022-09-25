@@ -10,15 +10,17 @@ import {
 import Sidebar from '../components/Sidebar';
 import Navbar from 'components/Navbar';
 
-
-
-
 const testSkills = ['Python', 'Java'];
 
-const projects = ['Codemania', 'Projectino', 'Don Fortino']
+const projects = ['Codemania', 'Projectino', 'Don Fortino', 'Don Fortino', 'Don Fortino', 'Don Fortino']
 
 
 const Feed = () => {
+
+  const handleIsInterested = () => {
+
+  }
+
   return (
     <div style={{ backgroundColor: "#1C1C23" }}>
       <Navbar />
@@ -27,11 +29,13 @@ const Feed = () => {
         component="main"
         display="flex"
         sx={{ marginTop: 4 }}>
-
-        <Sidebar />
         <Grid
           item
-          xs={9}
+          xs={1}
+        ></Grid>
+        <Grid
+          item
+          xs={10}
           display="flex"
           flexDirection="column"
         >
@@ -45,18 +49,26 @@ const Feed = () => {
           >
             Descubre proyectos de otras personas!
           </Typography>
-          {projects.map((project) => (
-            <Box sx={{ marginBottom: 4 }}>
-              <ProjectCard title={project}
-                description='Coding for maniacs'
-                skills={testSkills}
-                collaborators={3}
-                collaboratorsLimit={5}
-                status="Activo"
-              ></ProjectCard>
-            </Box>
-          ))}
+          <div style={{display: "flex", flexWrap: "wrap"}}>
+            {projects.map((project) => (
+              <Box sx={{ p: 2, width: "33%" }}>
+                <ProjectCard title={project}
+                  description='Coding for maniacs'
+                  skills={testSkills}
+                  collaborators={3}
+                  collaboratorsLimit={5}
+                  status="Activo"
+                  isInterested={true}
+                ></ProjectCard>
+              </Box>
+            ))}
+          </div>
         </Grid>
+
+        <Grid
+          item
+          xs={1}
+        ></Grid>
 
       </Grid>
     </div>
