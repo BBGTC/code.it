@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { create } from 'domain';
 import React, { ChangeEventHandler, useState } from 'react'
 import { trpcNext } from 'utils/trpcNext'
@@ -11,7 +12,7 @@ const INITIAL_FORM = {
   lastName: '',
   campus: '',
   semester: 1,
-  skills: [],
+  skills: [] as string[],
   major: '',
 }
 
@@ -30,55 +31,79 @@ const DUMMIE_FORM = {
 
 const signup = () => {
 
+  const dummieSignup = trpcNext.auth.dummieSignup.useMutation();
   const signup = trpcNext.auth.signUp.useMutation();
-
-  const [formState, setFormState] = useState(DUMMIE_FORM);
+  
+  const [formState, setFormState] = useState(INITIAL_FORM);
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    const createdUser = await signup.mutate(formState);
-    console.log(createdUser);
+    try {
+      e.preventDefault();
+      await signup.mutateAsync(DUMMIE_FORM);
+      console.log(formState);
+      console.log('data', signup.data);
+      console.log('error, ', signup.error);
+    } catch(e) {
+      console.error(e);
+    }
   };
 
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+
+    if (event.target.name === 'skills') {
+      setFormState({
+        ...formState,
+        skills: event.target.value.split(' '),
+      })
+    }
+
     setFormState({
       ...formState,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.type === 'number' ? parseInt(event.target.value, 10) || 0 : event.target.value,
+      skills: event.target.value.split(' '),
     });
+
   }
 
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
+      { !signup.isLoading && <h1> { signup.data?.name } </h1> }
+      <Typography color="white" fontSize={40}>
+        SIGNUP!
+      </Typography>
+      <form onSubmit={handleSubmit}>
         <div>
-          <input name='email' type="text" onChange={handleChange} />
+          <input placeholder='Email' name='email' type="text" onChange={handleChange} />
         </div>
         <div>
-          <input name='password' type="text" onChange={handleChange} />
+          <input placeholder='Contraseña' name='password' type="text" onChange={handleChange} />
         </div>
         <div>
-          <input name='confirmPassword' type="text" onChange={handleChange} />
+          <input placeholder='Confirma tu contraseña' name='confirmPassword' type="text" onChange={handleChange} />
         </div>
         <div>
-          <input name='username' type="text" onChange={handleChange} />
+          <input placeholder='Username' name='username' type="text" onChange={handleChange} />
         </div>
         <div>
-          <input name='name' type="text" onChange={handleChange} />
+          <input placeholder='Tu nombre' name='name' type="text" onChange={handleChange} />
         </div>
         <div>
-          <input name='lastName' type="text" onChange={handleChange} />
-          <div>
-            <input name='campus' type="text" onChange={handleChange} />
-          </div>
-          <div>
-            <input name='semester' type="number" onChange={handleChange} />
-          </div>
-          <div>
-            <input name='email' type="text" onChange={handleChange} />
-          </div>
-          <button type='submit'> ENVIAR </button>
+          <input placeholder='Tus apellidos' name='lastName' type="text" onChange={handleChange} />
         </div>
+        <div>
+          <input placeholder='Tu campus' name='campus' type="text" onChange={handleChange} />
+        </div>
+        <div>
+          <input placeholder='De qué semestre eres?' name='semester' type="number" onChange={handleChange} />
+        </div>
+        <div>
+          <input placeholder='Tus habilidades' name='skills' type="text" onChange={handleChange} />
+        </div>
+        <div>
+          <input placeholder='Tu carrera' name='major' type="text" onChange={handleChange} />
+        </div>
+        <button type='submit'> ENVIAR </button>
       </form>
 
     </div>

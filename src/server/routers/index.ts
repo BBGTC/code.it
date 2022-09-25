@@ -1,4 +1,6 @@
 import { trpc } from 'server/trpc';
+import z from 'zod';
+import sha256 from 'crypto-js/sha256';
 
 import { userRouter } from './user';
 import { projectRouter } from './project';
@@ -9,7 +11,8 @@ import { prisma } from 'server/prisma';
 export const appRouter = trpc.router({
   dummieProcedure: trpc.procedure
     .mutation(async () => {
-      const user = await prisma.user.create({
+      console.log('from router');
+      const user = {
         data: {
           email: 'antonio@tec.mx',
           password: '123123123',
@@ -21,7 +24,7 @@ export const appRouter = trpc.router({
           skills: ['react', 'python'],
           major: 'ITC',
         }
-      })
+      }
     return user;
     }),
   user: userRouter,

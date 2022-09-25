@@ -7,23 +7,41 @@ import { prisma } from 'server/prisma';
 
 
 export const authRouter = trpc.router({
+  dummieSignup: trpc.procedure
+    .mutation(async () => {
+      const newUser = {
+        email: 'antonio@tecccc.mx',
+        password: '123123123',
+        username: 'antonietacacaco',
+        name: 'Antonio',
+        lastName: 'Monroy',
+        campus: 'Guadalajara',
+        semester: 4,
+        skills: ['react', 'python'],
+        major: 'ITC',
+      }
+
+      return newUser;
+    }),
   signUp: trpc.procedure
     .input(
       z.object({
-        email: z.string().email().regex(new RegExp('.*@tec.mx')),
+        email: z.string().email(),
         password: z.string().min(10),
         confirmPassword: z.string().min(10),
         username: z.string().min(1),
         name: z.string().min(3),
         lastName: z.string().min(3),
         campus: z.string(),
-        semester: z.number().int(),
+        semester: z.number(),
         skills: z.array(z.string()),
         major: z.string(),
       })
     ) 
   .mutation(async (req) => {
     try {
+      console.log('aaaaa')
+      console.log(req);
       const newUser = await prisma.user.create({
         data: {
           ...req.input,
