@@ -7,14 +7,7 @@ import {
   Chip,
   Button,
 } from '@mui/material';
-import {
-  Groups,
-  Stream,
-  Home,
-  Code,
-} from '@mui/icons-material';
 
-import Sidebar from '../components/Sidebar';
 import Navbar from 'components/Navbar';
 
 const INITIAL_PROJECT = {
@@ -146,7 +139,7 @@ const CreateProject = () => {
                   label='Descripción'
                   variant='outlined'
                   multiline
-                  rows={4}
+                  rows={5}
                   value={project.description}
                   onChange={handleChange}
                   required
@@ -166,9 +159,8 @@ const CreateProject = () => {
                   fullWidth
                   InputProps={{ style: { color: '#84849D' } }}
                   InputLabelProps={{ style: { color: '#84849D' } }}
+                  sx={{mb: 4}}
                 ></TextField>
-              </Grid>
-              <Grid item xs={6}>
                 <Autocomplete
                   options={statuses}
                   onChange={(_, newValue) => handleChangeStatus(newValue ?? '')}
@@ -181,7 +173,10 @@ const CreateProject = () => {
                   />)}
                 />
               </Grid>
-              
+              <Grid item xs={6}>
+
+              </Grid>
+
               <Grid item xs={12} textAlign='center'>
                 <Button
                   variant='contained'

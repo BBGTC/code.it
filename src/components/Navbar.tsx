@@ -6,9 +6,6 @@ import {
   Box,
   Button,
   Typography,
-  Menu,
-  MenuItem,
-  Fade,
 } from '@mui/material';
 
 import {
@@ -69,7 +66,7 @@ const Navbar = () => {
           display="flex"
           justifyContent="end"
         >
-          xd
+          
         </Grid>
 
       </Grid>

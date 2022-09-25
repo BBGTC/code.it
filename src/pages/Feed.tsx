@@ -7,12 +7,12 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import Sidebar from '../components/Sidebar';
+
 import Navbar from 'components/Navbar';
 
 const testSkills = ['Python', 'Java'];
 
-const projects = ['Codemania', 'Projectino', 'Don Fortino', 'Don Fortino', 'Don Fortino', 'Don Fortino']
+const projects = ['Codemania', 'UberCode', 'Stylus', 'MGH']
 
 
 const Feed = () => {

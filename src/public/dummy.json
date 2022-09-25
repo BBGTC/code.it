@@ -1,0 +1,63 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "title": "Codemania",
+            "description": "Proyecto de prueba",
+            "skills": [
+                "C++",
+                "Python",
+                "JavaScript"
+            ],
+            "status": "ongoing",
+            "limit": 5
+        },
+        {
+            "id": 2,
+            "title": "Stock Predictor",
+            "description": "Una biblioteca financiera de aprendizaje profundo para la predicción del precio de las acciones y la comparación con las estrategias de inversión tradicionales. La Biblioteca se basa en LSTM-Neural Networks y Conv1D + LSTM Neural Networks. Las inversiones están sujetas a riesgos de mercado, EL AUTOR NO SE HACE RESPONSABLE por cualquier pérdida financiera.",
+            "skills": [
+                "Python",
+                "Keras"
+            ],
+            "author": "Mi nombre es Jorge, tengo 22 años y estoy en octavo semestre de la carrera de LAF en campus Guadalajara. En 2020, fui premiado en el Hult Prize por un proyecto fintech de una plataforma de crowdfunding inmobiliario. Ahora, con Stock Predictor, quiero crear una herramienta para el público general y así democratizar el mundo de las inversiones.",
+            "status": "starting",
+            "limit": 25
+        },
+        {
+            "id": 3,
+            "title": "Recipedia",
+            "description": "Recetas deliciosas para el día a día",
+            "skills": [
+                "JavaScript",
+                "React",
+                "MongoDB"
+            ],
+            "status": "ongoing",
+            "limit": 17
+        },
+        {
+            "id": 4,
+            "title": "Mario Clone",
+            "description": "Juega el Mario original nuevamente",
+            "skills": [
+                "Unity",
+                "C++"
+            ],
+            "status": "ongoing",
+            "limit": 7  
+        },
+        {
+            "id": 5,
+            "title": "U Movies",
+            "description": "Organiza tus películas",
+            "skills": [
+                "Firebase",
+                "Typescript",
+                "MongoDB"
+            ],
+            "status": "ongoing",
+            "limit": 30
+        }
+    ]
+}
