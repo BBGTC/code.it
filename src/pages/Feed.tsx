@@ -1,4 +1,5 @@
 import React from 'react'
+import data from 'public/dummy.json';
 
 import ProjectCard from '../components/ProjectCard';
 
@@ -6,12 +7,12 @@ import {
   Box,
   Grid,
   Typography,
+  useTheme,
 } from '@mui/material';
 
 import Navbar from 'components/Navbar';
 
 const testSkills = ['Python', 'Java'];
-
 const projects = ['Codemania', 'UberCode', 'Stylus', 'MGH']
 
 
@@ -44,16 +45,17 @@ const Feed = () => {
             variant="h4"
             component="h2"
             textAlign="center"
-            fontWeight="medium"
+            fontWeight={300}
             sx={{ color: "white" }}
           >
             Descubre proyectos de otras personas!
           </Typography>
           <div style={{display: "flex", flexWrap: "wrap"}}>
-            {projects.map((project) => (
+            {data["projects"].map((project) => (
               <Box sx={{ p: 2, width: "33%" }}>
-                <ProjectCard title={project}
-                  description='Coding for maniacs'
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
                   skills={testSkills}
                   collaborators={3}
                   collaboratorsLimit={5}
