@@ -31,10 +31,10 @@ const ProjectCard = ({ title, description, status, skills, collaborators, collab
           <Stream sx={{ color: "white", fontSize: 40, marginRight: 2, alignSelf: "center" }}></Stream>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <Typography color="white" fontSize={28}>{title}</Typography>
-            <Typography color="white" fontSize={14}>{description}</Typography>
+            <Typography color="#FF7966" fontSize={14}>{description}</Typography>
           </Box>
         </Box>
-        <Typography color="white" fontSize={14}>Technologies: {skills.map((skill) => skill).join(", ")}</Typography>
+        <Typography color="white" fontSize={14}>Tecnologías: {skills.map((skill) => skill).join(", ")}</Typography>
       </Box>
       <Box sx={{ display: "flex" }}>
         <Groups sx={{ color: "white", marginRight: 1 }}></Groups>

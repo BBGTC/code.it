@@ -13,8 +13,8 @@ function ActiveLink({ children, href }: ActiveLinkProps) {
 
   return (
     <Link href={href}>
-      <a>{children}</a>
-    </Link>
+      <a style={{ textDecoration: "none", color: "white", marginLeft: 20 }}>{children}</a>
+    </Link >
   )
 }
 

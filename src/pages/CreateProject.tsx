@@ -21,11 +21,11 @@ const INITIAL_PROJECT = {
   title: '',
   description: '',
   skills: [] as string[],
-  status: 'starting',
+  status: 'iniciando',
   limit: 0 as number,
 };
 
-const statuses = ['starting', 'ongoing', 'finished'];
+const statuses = ['iniciando', 'en proceso', 'finalizado'];
 
 
 const CreateProject = () => {
@@ -86,7 +86,7 @@ const CreateProject = () => {
         <Grid
           item
           xs={8}
-        // sx={{ backgroundColor: "#666680", borderRadius: "24px", padding: 4 }}
+        // sx={{ backgroundColor: "#84849D", borderRadius: "24px", padding: 4 }}
         >
           <Typography
             variant="h4"
@@ -94,7 +94,7 @@ const CreateProject = () => {
             textAlign="center"
             fontWeight="medium"
             sx={{ color: "white", ml: 1 }}
-          >Create a new Project!</Typography>
+          >Crea un nuevo proyecto!</Typography>
           <form>
             <Grid
               container
@@ -103,39 +103,39 @@ const CreateProject = () => {
                 <TextField
                   name='title'
                   label='Título'
-                  variant='outlined'
+                  variant='standard'
                   value={project.title}
                   onChange={handleChange}
                   required
                   fullWidth
-                  InputProps={{ style: { color: '#666680' } }}
-                  InputLabelProps={{ style: { color: '#666680' } }}
+                  InputProps={{ style: { color: '#84849D' } }}
+                  InputLabelProps={{ style: { color: '#84849D' } }}
                 />
               </Grid>
               <Grid item xs={12} sx={{ marginBottom: 4 }}>
                 <TextField
                   name='description'
                   label='Descripción'
-                  variant='outlined'
+                  variant='standard'
                   value={project.description}
                   onChange={handleChange}
                   required
                   fullWidth
-                  InputProps={{ style: { color: '#666680' } }}
-                  InputLabelProps={{ style: { color: '#666680' } }}
+                  InputProps={{ style: { color: '#84849D' } }}
+                  InputLabelProps={{ style: { color: '#84849D' } }}
                 ></TextField>
               </Grid>
               <Grid item xs={12} sx={{ marginBottom: 4 }}>
                 <TextField
                   name='limit'
                   label='Límite de colaboradores'
-                  variant='outlined'
+                  variant='standard'
                   value={project.limit}
                   onChange={handleChangeLimit}
                   required
                   fullWidth
-                  InputProps={{ style: { color: '#666680' } }}
-                  InputLabelProps={{ style: { color: '#666680' } }}
+                  InputProps={{ style: { color: '#84849D' } }}
+                  InputLabelProps={{ style: { color: '#84849D' } }}
                 ></TextField>
               </Grid>
               <Grid item xs={12} sx={{ marginBottom: 4 }}>
@@ -145,9 +145,9 @@ const CreateProject = () => {
                   renderInput={(params) => (<TextField
                     {...params}
                     label="Estatus"
-                    variant='outlined'
-                    InputProps={{ ...params.InputProps, style: { color: '#666680' } }}
-                    InputLabelProps={{ style: { color: '#666680' } }}
+                    variant='standard'
+                    InputProps={{ ...params.InputProps, style: { color: '#84849D' } }}
+                    InputLabelProps={{ style: { color: '#84849D' } }}
                   />)}
                 />
               </Grid>
@@ -171,9 +171,9 @@ const CreateProject = () => {
                     <TextField
                       {...params}
                       label="Habilidades"
-                      variant='outlined'
-                      InputProps={{ ...params.InputProps, style: { color: '#666680' } }}
-                      InputLabelProps={{ style: { color: '#666680' } }}
+                      variant='standard'
+                      InputProps={{ ...params.InputProps, style: { color: '#84849D' } }}
+                      InputLabelProps={{ style: { color: '#84849D' } }}
                     />
                   )}
                 />

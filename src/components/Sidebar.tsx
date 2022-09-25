@@ -30,16 +30,34 @@ const Sidebar = () => {
       >
         <MenuList sx={{ color: "white" }}>
           <MenuItem>
-            <Home></Home>
-            <ActiveLink href='Feed'>Feed</ActiveLink>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+            }}>
+              <Home sx={{color: "#61DBFB"}}/>
+              <ActiveLink href='Feed'>Feed</ActiveLink>
+            </div>
           </MenuItem>
           <MenuItem>
-            <Code></Code>
-            <ActiveLink href='Requests'>Requests</ActiveLink>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+            }}>
+              <Code sx={{color: "#61DBFB"}} />
+              <ActiveLink href='Requests'>Invitaciones</ActiveLink>
+            </div>
           </MenuItem>
           <MenuItem>
-            <Stream></Stream>
-            <ActiveLink href='CreateProject'>Create a Project</ActiveLink>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+            }}>
+              <Stream sx={{color: "#61DBFB"}} />
+              <ActiveLink href='CreateProject'>Crea un Proyecto</ActiveLink>
+            </div>
           </MenuItem>
         </MenuList>
       </Grid>

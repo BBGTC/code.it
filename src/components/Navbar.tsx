@@ -27,16 +27,24 @@ const Navbar = () => {
           item
           display="flex"
         >
-          <Typography
-            variant="h4"
-            component="h2"
-            textAlign="center"
-            fontWeight="medium"
-            sx={{ color: "white", ml: 1 }}
-          >
-            <Code sx={{ fontSize: '40px' }}></Code>
-            Code:it!
-          </Typography>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+          }}> 
+            <Code sx={{ fontSize: '40px', color: "white", ml: 2, color: "#61DBFB" }}></Code>
+            <Typography
+              variant="h4"
+              component="h2"
+              textAlign="center"
+              fontWeight="medium"
+              sx={{ color: "white", ml: 1 }}
+            >
+
+              Code:it!
+            </Typography>
+          </div>
+
 
         </Grid>
         <Grid

@@ -43,7 +43,7 @@ const Feed = () => {
             fontWeight="medium"
             sx={{ color: "white" }}
           >
-            Discover  peoples's projects
+            Descubre proyectos de otras personas!
           </Typography>
           {projects.map((project) => (
             <Box sx={{ marginBottom: 4 }}>
