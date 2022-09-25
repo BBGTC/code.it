@@ -1,8 +1,8 @@
 import { trpcNext } from 'utils/trpcNext';
+import 'styles/globals.css';
 
 export default function IndexPage() {
  
-  const mutation = trpcNext.auth.signUp.useMutation();
 
   const handleSubmit = () => {}
 
