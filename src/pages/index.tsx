@@ -1,15 +1,18 @@
 import { trpcNext } from 'utils/trpcNext';
+import 'styles/globals.css';
 
 export default function IndexPage() {
-  const h = trpcNext.hello.useQuery({ text: 'client' });
+ 
 
-  if (!h.data) {
-    return <div>Loading...</div>
-  }
+  const handleSubmit = () => {}
 
   return (
     <div>
-      <p>{h.data.greeting}</p>
+      <form action="">
+        
+
+      </form>
     </div>
-  );
+  )
+
 };
